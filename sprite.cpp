@@ -1,3 +1,4 @@
+#include "sprite.h"
 
 Sprite::Sprite(Surface* a_Surface, unsigned int a_NumFrames) :
 	width(a_Surface->width / a_NumFrames),

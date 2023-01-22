@@ -1,4 +1,8 @@
 #include "renderer.h"
+#include "timer.h"
+#include "surface.h"
+#include "pixel_ops.h"
+#include "memory_ops.h"
 
 // -----------------------------------------------------------
 // Initialize the renderer
@@ -6,23 +10,16 @@
 void Renderer::Init()
 {
 	// create fp32 rgb pixel buffer to render to
-	accumulator = (float4*)MALLOC64( SCRWIDTH * SCRHEIGHT * 16 );
+	accumulator = (glm::fvec4*)MALLOC64( SCRWIDTH * SCRHEIGHT * 16 );
 	memset( accumulator, 0, SCRWIDTH * SCRHEIGHT * 16 );
 }
 
 // -----------------------------------------------------------
 // Evaluate light transport
 // -----------------------------------------------------------
-float3 Renderer::Trace( Ray& ray )
+glm::fvec3 Renderer::Trace( Ray& ray )
 {
-	scene.FindNearest( ray );
-	if (ray.objIdx == -1) return 0; // or a fancy sky color
-	float3 I = ray.O + ray.t * ray.D;
-	float3 N = scene.GetNormal( ray.objIdx, I, ray.D );
-	float3 albedo = scene.GetAlbedo( ray.objIdx, I );
-	/* visualize normal */ return (N + 1) * 0.5f;
-	/* visualize distance */ // return 0.1f * float3( ray.t, ray.t, ray.t );
-	/* visualize albedo */ // return albedo;
+	return glm::fvec3{1.0f, 0.0f, 1.0f};
 }
 
 // -----------------------------------------------------------
@@ -32,8 +29,6 @@ void Renderer::Tick( float deltaTime )
 {
 	// animation
 	static float animTime = 0;
-	scene.SetTime( animTime += deltaTime * 0.002f );
-	// pixel loop
 	Timer t;
 	// lines are executed as OpenMP parallel tasks (disabled in DEBUG)
 	#pragma omp parallel for schedule(dynamic)
@@ -42,7 +37,7 @@ void Renderer::Tick( float deltaTime )
 		// trace a primary ray for each pixel on the line
 		for (int x = 0; x < SCRWIDTH; x++)
 			accumulator[x + y * SCRWIDTH] =
-				float4( Trace( camera.GetPrimaryRay( x, y ) ), 0 );
+				glm::fvec4( Trace( camera.GetPrimaryRay( x, y ) ), 0.0f );
 		// translate accumulator contents to rgb32 pixels
 		for (int dest = y * SCRWIDTH, x = 0; x < SCRWIDTH; x++)
 			screen->pixels[dest + x] = 

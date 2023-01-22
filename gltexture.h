@@ -1,6 +1,7 @@
 #pragma once
 
 #include "surface.h"
+#include "glad/glad.h"
 
 class GLTexture
 {
@@ -15,7 +16,7 @@ public:
 	void CopyTo( Surface* dst );
 public:
 	// public data members
-	GLunsigned int ID = 0;
+	GLuint ID = 0;
 	unsigned int width = 0, height = 0;
 };
 

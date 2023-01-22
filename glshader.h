@@ -1,6 +1,6 @@
 #pragma once
 
-#include "glshader.h"
+#include "glm/glm.hpp"
 
 class Shader
 {
@@ -12,11 +12,11 @@ public:
 	void Init( const char* vfile, const char* pfile );
 	void Compile( const char* vtext, const char* ftext );
 	void Bind();
-	void SetInputTexture( unsigned int slot, const char* name, GLTexture* texture );
-	void SetInputMatrix( const char* name, const mat4& matrix );
+	void SetInputTexture( unsigned int slot, const char* name, class GLTexture* texture );
+	void SetInputMatrix( const char* name, const glm::fmat4x4& matrix );
 	void SetFloat( const char* name, const float v );
 	void SetInt( const char* name, const int v );
-	void Setunsigned int( const char* name, const unsigned int v );
+	void SetUInt( const char* name, const unsigned int v );
 	void Unbind();
 private:
 	// data members

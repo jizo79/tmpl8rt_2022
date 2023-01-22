@@ -1,4 +1,12 @@
 #include "surface.h"
+#include "memory_ops.h"
+#include "helpers.h"
+
+#define STB_IMAGE_IMPLEMENTATION
+#define STBI_NO_PSD
+#define STBI_NO_PIC
+#define STBI_NO_PNM
+#include "../lib/stb_image.h"
 
 static char s_Font[51][5][6];
 static bool fontInitialized = false;

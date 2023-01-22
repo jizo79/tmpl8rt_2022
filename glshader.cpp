@@ -1,5 +1,10 @@
 #include "glshader.h"
+#include "glad/glad.h"
+#include "glhelpers.h"
+#include "gltexture.h"
+#include "helpers.h"
 
+#include <string>
 Shader::Shader(const char* vfile, const char* pfile, bool fromString)
 {
 	if (fromString)
@@ -24,8 +29,8 @@ Shader::~Shader()
 
 void Shader::Init(const char* vfile, const char* pfile)
 {
-	string vsText = TextFileRead(vfile);
-	string fsText = TextFileRead(pfile);
+	std::string vsText = TextFileRead(vfile);
+	std::string fsText = TextFileRead(pfile);
 	FATALERROR_IF(vsText.size() == 0, "File %s not found", vfile);
 	FATALERROR_IF(fsText.size() == 0, "File %s not found", pfile);
 	const char* vertexText = vsText.c_str();
@@ -73,7 +78,7 @@ void Shader::SetInputTexture(unsigned int slot, const char* name, GLTexture* tex
 	CheckGL();
 }
 
-void Shader::SetInputMatrix(const char* name, const mat4& matrix)
+void Shader::SetInputMatrix(const char* name, const glm::fmat4x4& matrix)
 {
 	const GLfloat* data = (const GLfloat*)&matrix;
 	glUniformMatrix4fv(glGetUniformLocation(ID, name), 1, GL_FALSE, data);
@@ -92,7 +97,7 @@ void Shader::SetInt(const char* name, const int v)
 	CheckGL();
 }
 
-void Shader::Setunsigned int(const char* name, const unsigned int v)
+void Shader::SetUInt(const char* name, const unsigned int v)
 {
 	glUniform1ui(glGetUniformLocation(ID, name), v);
 	CheckGL();

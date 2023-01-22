@@ -16,14 +16,12 @@
     <ClCompile Include="glhelpers.cpp" />
     <ClCompile Include="rand.cpp" />
     <ClCompile Include="pixel_ops.cpp" />
+    <ClCompile Include="ray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h" />
     <ClInclude Include="renderer.h" />
     <ClInclude Include="template\common.h">
-      <Filter>template</Filter>
-    </ClInclude>
-    <ClInclude Include="template\scene.h">
       <Filter>template</Filter>
     </ClInclude>
     <ClInclude Include="template\precomp.h">
@@ -41,6 +39,8 @@
     <ClInclude Include="glhelpers.h" />
     <ClInclude Include="rand.h" />
     <ClInclude Include="pixel_ops.h" />
+    <ClInclude Include="ray.h" />
+    <ClInclude Include="memory_ops.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="template">

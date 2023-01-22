@@ -1,3 +1,5 @@
+#pragma comment( linker, "/subsystem:windows /ENTRY:mainCRTStartup" )
+
 #include <fstream>
 #include <vector>
 #include <list>
@@ -11,7 +13,7 @@
 #define GLFW_USE_CHDIR 0
 #define GLFW_EXPOSE_NATIVE_WIN32
 #define GLFW_EXPOSE_NATIVE_WGL
-#include <glad\glad.h>
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <GLFW/glfw3native.h>
 
@@ -20,47 +22,14 @@
 #define WIN32_LEAN_AND_MEAN
 #define VC_EXTRALEAN
 #endif
-#define NOGDICAPMASKS
-// #define NOVIRTUALKEYCODES
-#define NOWINMESSAGES
-#define NOWINSTYLES
-#define NOSYSMETRICS
-#define NOMENUS
-#define NOICONS
-#define NOKEYSTATES
-#define NOSYSCOMMANDS
-#define NORASTEROPS
-#define NOSHOWWINDOW
-#define OEMRESOURCE
-#define NOATOM
-#define NOCLIPBOARD
-#define NOCOLOR
-#define NOCTLMGR
-#define NODRAWTEXT
-#define NOKERNEL
-#define NONLS
-#define NOMEMMGR
-#define NOMETAFILE
-#define NOMINMAX
-#define NOMSG
-#define NOOPENFILE
-#define NOSCROLL
-#define NOSERVICE
-#define NOSOUND
-#define NOTEXTMETRIC
-#define NOWH
-#define NOWINOFFSETS
-#define NOCOMM
-#define NOKANJI
-#define NOHELP
-#define NOPROFILER
-#define NODEFERWINDOWPOS
-#define NOMCX
-#define NOIME
 #include "windows.h"
 
 #include "gltexture.h"
+#include "glhelpers.h"
 #include "renderer.h"
+#include "helpers.h"
+#include "glshader.h"
+#include "timer.h"
 
 static GLFWwindow* window = 0;
 static bool hasFocus = true, running = true;
@@ -114,6 +83,7 @@ void MousePosCallback(GLFWwindow* window, double x, double y)
 
 void main()
 {
+
 	// open a window
 	if (!glfwInit()) FatalError("glfwInit failed.");
 	glfwSetErrorCallback(ErrorCallback);
@@ -300,7 +270,7 @@ void main()
 	static Timer timer;
 	while (!glfwWindowShouldClose(window))
 	{
-		deltaTime = min(500.0f, 1000.0f * timer.elapsed());
+		deltaTime = glm::min(500.0f, 1000.0f * timer.elapsed());
 		timer.reset();
 		app->Tick(deltaTime);
 		// send the rendering result to the screen using OpenGL
@@ -318,7 +288,6 @@ void main()
 	}
 	// close down
 	app->Shutdown();
-	Kernel::KillCL();
 	glfwDestroyWindow(window);
 	glfwTerminate();
 }

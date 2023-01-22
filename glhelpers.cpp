@@ -1,4 +1,12 @@
+#define NOMINMAX
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#define VC_EXTRALEAN
+#endif
+#include "windows.h"
+
 #include "glhelpers.h"
+#include "helpers.h"
 
 void _CheckGL(const char* f, int l)
 {

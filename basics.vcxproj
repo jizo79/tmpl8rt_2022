@@ -55,7 +55,7 @@
       <ExceptionHandling>Sync</ExceptionHandling>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>winmm.lib;advapi32.lib;user32.lib;glfw3.lib;gdi32.lib;shell32.lib;OpenCL.lib;OpenGL32.lib;libz-static.lib</AdditionalDependencies>
+      <AdditionalDependencies>winmm.lib;advapi32.lib;user32.lib;glfw3.lib;gdi32.lib;shell32.lib;OpenGL32.lib;libz-static.lib</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <OutputFile>$(TargetPath)</OutputFile>
@@ -132,6 +132,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pixel_ops.cpp" />
     <ClCompile Include="rand.cpp" />
+    <ClCompile Include="ray.cpp" />
     <ClCompile Include="renderer.cpp" />
     <ClCompile Include="sprite.cpp" />
     <ClCompile Include="surface.cpp" />
@@ -149,14 +150,15 @@
     <ClInclude Include="gltexture.h" />
     <ClInclude Include="helpers.h" />
     <ClInclude Include="jobmanager.h" />
+    <ClInclude Include="memory_ops.h" />
     <ClInclude Include="pixel_ops.h" />
     <ClInclude Include="rand.h" />
+    <ClInclude Include="ray.h" />
     <ClInclude Include="renderer.h" />
     <ClInclude Include="sprite.h" />
     <ClInclude Include="surface.h" />
     <ClInclude Include="template\common.h" />
     <ClInclude Include="template\precomp.h" />
-    <ClInclude Include="template\scene.h" />
     <ClInclude Include="timer.h" />
   </ItemGroup>
   <ItemGroup>

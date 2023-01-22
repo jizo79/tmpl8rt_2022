@@ -1,4 +1,5 @@
 #include "rand.h"
+#include <cmath>
 
 // RNG - Marsaglia's xor32
 static unsigned int seed = 0x12345678;
@@ -59,7 +60,7 @@ static float SmoothedNoise(const int i, const int x, const int y)
 }
 static float Interpolate(const float a, const float b, const float x)
 {
-	const float ft = x * 3.1415927f, f = (1 - cosf(ft)) * 0.5f;
+	const float ft = x * 3.1415927f, f = (1 - std::cosf(ft)) * 0.5f;
 	return a * (1 - f) + b * f;
 }
 static float InterpolatedNoise(const int i, const float x, const float y)

@@ -1,4 +1,5 @@
 #include "gltexture.h"
+#include "glhelpers.h"
 
 GLTexture::GLTexture(unsigned int w, unsigned int h, unsigned int type)
 {
