@@ -1,9 +1,8 @@
 #pragma once
 
-namespace Tmpl8
-{
+#include "app.h"
 
-class Renderer : public TheApp
+class Renderer : public App
 {
 public:
 	// game flow methods
@@ -24,5 +23,3 @@ public:
 	Scene scene;
 	Camera camera;
 };
-
-} // namespace Tmpl8

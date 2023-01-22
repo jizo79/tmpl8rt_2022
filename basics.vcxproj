@@ -47,9 +47,10 @@
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>template;.;lib\glad;lib\glfw\include;lib\OpenCL\inc;lib\zlib</AdditionalIncludeDirectories>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>precomp.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>template;.;lib\glad\include;lib\glfw\include;lib\OpenCL\inc;lib\zlib;F:\codebase\glm</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <ExceptionHandling>Sync</ExceptionHandling>
     </ClCompile>
@@ -122,18 +123,41 @@
   </ItemDefinitionGroup>
   <!-- END Custom section -->
   <ItemGroup>
+    <ClCompile Include="glad.c" />
+    <ClCompile Include="glhelpers.cpp" />
+    <ClCompile Include="glshader.cpp" />
+    <ClCompile Include="gltexture.cpp" />
+    <ClCompile Include="helpers.cpp" />
+    <ClCompile Include="jobmanager.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="pixel_ops.cpp" />
+    <ClCompile Include="rand.cpp" />
     <ClCompile Include="renderer.cpp" />
+    <ClCompile Include="sprite.cpp" />
+    <ClCompile Include="surface.cpp" />
     <ClCompile Include="template\template.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="aabb.h" />
+    <ClInclude Include="app.h" />
     <ClInclude Include="camera.h" />
+    <ClInclude Include="glhelpers.h" />
+    <ClInclude Include="glshader.h" />
+    <ClInclude Include="gltexture.h" />
+    <ClInclude Include="helpers.h" />
+    <ClInclude Include="jobmanager.h" />
+    <ClInclude Include="pixel_ops.h" />
+    <ClInclude Include="rand.h" />
     <ClInclude Include="renderer.h" />
+    <ClInclude Include="sprite.h" />
+    <ClInclude Include="surface.h" />
     <ClInclude Include="template\common.h" />
     <ClInclude Include="template\precomp.h" />
     <ClInclude Include="template\scene.h" />
+    <ClInclude Include="timer.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="template\LICENSE" />
