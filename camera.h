@@ -30,6 +30,14 @@ public:
 		const glm::fvec3 norm = glm::normalize( P - camPos );
 		return Ray{ camPos, norm };
 	}
+
+	glm::fvec2 GetScreenUV( const int x, const int y ) const
+	{
+		const float u = (float)x * (1.0f / SCRWIDTH);
+		const float v = (float)y * (1.0f / SCRHEIGHT);
+		return glm::fvec2{u, v};
+	}
+
 	float aspect;
 	glm::fvec3 camPos;
 	glm::fvec3 topLeft, topRight, bottomLeft;

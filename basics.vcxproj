@@ -128,40 +128,46 @@
     <ClCompile Include="glshader.cpp" />
     <ClCompile Include="gltexture.cpp" />
     <ClCompile Include="helpers.cpp" />
-    <ClCompile Include="jobmanager.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="pixel_ops.cpp" />
     <ClCompile Include="rand.cpp" />
     <ClCompile Include="ray.cpp" />
     <ClCompile Include="renderer.cpp" />
-    <ClCompile Include="sprite.cpp" />
     <ClCompile Include="surface.cpp" />
     <ClCompile Include="template\template.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="ViewPlane.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="aabb.h" />
     <ClInclude Include="app.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="glhelpers.h" />
     <ClInclude Include="glshader.h" />
     <ClInclude Include="gltexture.h" />
     <ClInclude Include="helpers.h" />
-    <ClInclude Include="jobmanager.h" />
     <ClInclude Include="memory_ops.h" />
     <ClInclude Include="pixel_ops.h" />
     <ClInclude Include="rand.h" />
     <ClInclude Include="ray.h" />
     <ClInclude Include="renderer.h" />
-    <ClInclude Include="sprite.h" />
     <ClInclude Include="surface.h" />
     <ClInclude Include="template\common.h" />
     <ClInclude Include="template\precomp.h" />
     <ClInclude Include="timer.h" />
+    <ClInclude Include="ViewPlane.h" />
   </ItemGroup>
   <ItemGroup>
+    <CopyFileToFolders Include="basic.frag">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="basic.vert">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="fxaa.vert">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
+    <None Include="fxaa.frag" />
     <None Include="template\LICENSE" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

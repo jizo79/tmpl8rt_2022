@@ -1,55 +1,113 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="renderer.cpp" />
     <ClCompile Include="template\template.cpp">
       <Filter>template</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="surface.cpp" />
-    <ClCompile Include="sprite.cpp" />
-    <ClCompile Include="glad.c" />
-    <ClCompile Include="jobmanager.cpp" />
-    <ClCompile Include="gltexture.cpp" />
-    <ClCompile Include="glshader.cpp" />
     <ClCompile Include="helpers.cpp" />
-    <ClCompile Include="glhelpers.cpp" />
     <ClCompile Include="rand.cpp" />
-    <ClCompile Include="pixel_ops.cpp" />
-    <ClCompile Include="ray.cpp" />
+    <ClCompile Include="main.cpp">
+      <Filter>app</Filter>
+    </ClCompile>
+    <ClCompile Include="glhelpers.cpp">
+      <Filter>ogl</Filter>
+    </ClCompile>
+    <ClCompile Include="gltexture.cpp">
+      <Filter>ogl</Filter>
+    </ClCompile>
+    <ClCompile Include="glshader.cpp">
+      <Filter>ogl</Filter>
+    </ClCompile>
+    <ClCompile Include="glad.c">
+      <Filter>ogl</Filter>
+    </ClCompile>
+    <ClCompile Include="ray.cpp">
+      <Filter>raytracer</Filter>
+    </ClCompile>
+    <ClCompile Include="renderer.cpp">
+      <Filter>raytracer</Filter>
+    </ClCompile>
+    <ClCompile Include="surface.cpp">
+      <Filter>raytracer</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewPlane.cpp">
+      <Filter>raytracer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="camera.h" />
-    <ClInclude Include="renderer.h" />
     <ClInclude Include="template\common.h">
       <Filter>template</Filter>
     </ClInclude>
     <ClInclude Include="template\precomp.h">
       <Filter>template</Filter>
     </ClInclude>
-    <ClInclude Include="app.h" />
-    <ClInclude Include="surface.h" />
-    <ClInclude Include="sprite.h" />
-    <ClInclude Include="gltexture.h" />
-    <ClInclude Include="glshader.h" />
     <ClInclude Include="timer.h" />
-    <ClInclude Include="jobmanager.h" />
-    <ClInclude Include="aabb.h" />
     <ClInclude Include="helpers.h" />
-    <ClInclude Include="glhelpers.h" />
     <ClInclude Include="rand.h" />
     <ClInclude Include="pixel_ops.h" />
-    <ClInclude Include="ray.h" />
     <ClInclude Include="memory_ops.h" />
+    <ClInclude Include="app.h">
+      <Filter>app</Filter>
+    </ClInclude>
+    <ClInclude Include="glhelpers.h">
+      <Filter>ogl</Filter>
+    </ClInclude>
+    <ClInclude Include="glshader.h">
+      <Filter>ogl</Filter>
+    </ClInclude>
+    <ClInclude Include="gltexture.h">
+      <Filter>ogl</Filter>
+    </ClInclude>
+    <ClInclude Include="ray.h">
+      <Filter>raytracer</Filter>
+    </ClInclude>
+    <ClInclude Include="renderer.h">
+      <Filter>raytracer</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>raytracer</Filter>
+    </ClInclude>
+    <ClInclude Include="surface.h">
+      <Filter>raytracer</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewPlane.h">
+      <Filter>raytracer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="template">
       <UniqueIdentifier>{a7d6e3cb-bfcd-438d-979f-17df241a55b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{ab858011-c42a-44ac-a16d-2436724ec98b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="app">
+      <UniqueIdentifier>{a770fb28-2926-4664-8bd7-96c0c98a89a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ogl">
+      <UniqueIdentifier>{7b0da226-8e65-44f3-a53e-5e736b6fb9cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="raytracer">
+      <UniqueIdentifier>{74ab15c2-4a39-497b-b8dc-bb93a618927e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="template\LICENSE">
       <Filter>template</Filter>
     </None>
+    <None Include="fxaa.frag">
+      <Filter>shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="basic.frag">
+      <Filter>shaders</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="basic.vert">
+      <Filter>shaders</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="fxaa.vert">
+      <Filter>shaders</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>

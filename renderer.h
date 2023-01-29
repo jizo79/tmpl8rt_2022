@@ -4,6 +4,7 @@
 #include "glm/glm.hpp"
 #include "ray.h"
 #include "camera.h"
+#include "ViewPlane.h"
 
 class Renderer : public App
 {
@@ -12,6 +13,7 @@ public:
 	void Init() override;
 	glm::fvec3 Trace( Ray& ray );
 	void Tick( float deltaTime ) override;
+	void Render( class GLTexture *renderTarget ) override;
 	void Shutdown()  override { /* implement if you want to do something on exit */ }
 	// input handling
 	void MouseUp( int button )  override { /* implement if you want to detect mouse button presses */ }
@@ -24,4 +26,5 @@ public:
 	glm::ivec2 mousePos;
 	glm::fvec4* accumulator;
 	Camera camera;
+	ViewPlane *viewPlane;
 };
